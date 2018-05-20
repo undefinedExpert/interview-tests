@@ -16,5 +16,6 @@
     <orderEntry type="library" name="react-redux-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="ReactDOM" level="application" />
     <orderEntry type="library" name="redux-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="prop-types-DefinitelyTyped" level="application" />
   </component>
 </module>
