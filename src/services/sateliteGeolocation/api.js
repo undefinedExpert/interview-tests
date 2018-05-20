@@ -4,12 +4,15 @@ import { http} from 'services/api';
 const endPoints = {
   satellites: () => `/satellites`,
   satellite: (id) => `/satellites/${id}`,
-  positions: (id) => `/satellites/${id}/positions`,
-  tles: (id) => `/satellites/${id}/tles`,
-  coordinates: (lat, ion) => `/coordinates/${lat},${ion}`,
+  geocode: () => `/geocode/json`,
 };
 
-export const satellites = () => http('get', endPoints.satellites())
-export const satellite = (id) => http('get', endPoints.satellite(id))
-export const positions = (id) => http('get', endPoints.positions(id))
+export const satellites = () =>
+  http('iss', 'get', endPoints.satellites())
+
+export const satellite = (id) =>
+  http('iss', 'get', endPoints.satellite(id))
+
+export const humanReadablePositionOfSatellite = (lat, lng) =>
+  http('gmaps', 'get', endPoints.geocode(), { params: { latlng: `${lat},${lng}`} })
 
