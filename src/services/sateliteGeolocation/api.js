@@ -1,5 +1,4 @@
 import { http} from 'services/api';
-import apiConfig from 'services/api/config';
 
 
 const endPoints = {
@@ -10,4 +9,7 @@ const endPoints = {
   coordinates: (lat, ion) => `/coordinates/${lat},${ion}`,
 };
 
-const issHardcodedId = '25544'
+export const satellites = () => http('get', endPoints.satellites())
+export const satellite = (id) => http('get', endPoints.satellite(id))
+export const positions = (id) => http('get', endPoints.positions(id))
+
